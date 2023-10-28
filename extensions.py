@@ -1,6 +1,6 @@
 import json    #  библиотека для отлова инфо без излишеств и примесей html
 import requests    #  импортируем библиотеку для запроса информации с сайтов
-from config import API_KEY, currencies
+from config import currencies
 
 class APIException(Exception):
     pass
@@ -26,7 +26,7 @@ class Converter:    #  Конвертер валют
 
         url = f"https://api.apilayer.com/exchangerates_data/convert?to={curr_to_key}&from={curr_from_key}&amount={amount}"
         payload = {}
-        headers = {"apikey": API_KEY}
+        headers = {"apikey": "2BccUD8B7vBgLRJwCjYSA5oUeAzxKg9Q"}
         r = requests.request("GET", url, headers=headers, data=payload)
         resp = json.loads(r.content)
         result = resp['result']
